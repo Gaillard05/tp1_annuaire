@@ -21,3 +21,21 @@ func RechercherContact(nom string) (Contact, error) {
 
 	return c, nil
 }
+
+func ListerContacts() []Contact {
+	var liste []Contact
+	for _, c := range contacts {
+		liste = append(liste, c)
+	}
+	return liste
+}
+
+func CreerContact(nom, tel string) (Contact, error) {
+	if _, existe := contacts[nom]; existe {
+		return Contact{}, fmt.Errorf("le contact %q existe déjà", nom)
+	}
+
+	c := Contact{Nom: nom, Tel: tel}
+	contacts[nom] = c
+	return c, nil
+}
