@@ -26,7 +26,8 @@ func main() {
 		fmt.Println("1. Ajouter un contact")
 		fmt.Println("2. Rechercher un contact")
 		fmt.Println("3. Afficher tous les contacts")
-		fmt.Println("4. Quitter")
+		fmt.Println("4. Nom du contact à supprimer")
+		fmt.Println("5. Quitter")
 		fmt.Print("Choix : ")
 
 		scanner.Scan()
@@ -72,6 +73,18 @@ func main() {
 				}
 			}
 		case "4":
+			fmt.Print("Nom du contact à supprimer : ")
+			scanner.Scan()
+			nom := strings.TrimSpace(scanner.Text())
+
+			err := annuaire.SupprimerContact(nom)
+
+			if err != nil {
+				fmt.Println("X", err)
+			} else {
+				fmt.Println("Contact supprimé")
+			}
+		case "5":
 			fmt.Println("Au revoir !")
 			return
 

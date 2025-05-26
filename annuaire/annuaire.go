@@ -39,3 +39,11 @@ func CreerContact(nom, tel string) (Contact, error) {
 	contacts[nom] = c
 	return c, nil
 }
+
+func SupprimerContact(nom string) error {
+	if _, existe := contacts[nom]; !existe {
+		return fmt.Errorf("le contact %q n'existe pas", nom)
+	}
+	delete(contacts, nom)
+	return nil
+}
