@@ -35,3 +35,8 @@ go run main.go --action modifier --nom "Charlie" --tel "0612345678"
 
 Supprimer un contact :
 go run main.go --action supprimer --nom "Charlie"
+
+Lancer les tests : 
+
+Aller dans le répertoire annuaire :
+go test
